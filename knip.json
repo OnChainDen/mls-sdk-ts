@@ -1,0 +1,12 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "project": ["src/**/*.ts"],
+  "ignore": ["examples/**"],
+  "ignoreDependencies": [
+    "@jest/globals",
+    "eslint-config-prettier",
+    "eslint-plugin-prettier",
+    "dotenv"
+  ],
+  "includeEntryExports": false
+}

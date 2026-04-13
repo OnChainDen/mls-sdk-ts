@@ -1,0 +1,89 @@
+name: PR CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+
+# Cancel in-progress runs when a new commit is pushed to the same PR/branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_ENV: test
+
+jobs:
+  # Lint, format, knip, build, and type check
+  lint-format-typecheck:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.pull_request.draft == false
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Check for unused exports and dependencies
+        run: yarn knip
+
+      - name: Check formatting
+        run: yarn format:check
+
+      - name: Build
+        run: yarn build
+
+      - name: Type check
+        run: yarn type-check
+
+  # Run tests
+  test:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.pull_request.draft == false
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run tests
+        run: yarn test:coverage
+
+  # Gate job for branch protection
+  ci-passed:
+    runs-on: ubuntu-latest
+    needs: [lint-format-typecheck, test]
+    if: always() && (github.event_name == 'push' || github.event.pull_request.draft == false)
+    steps:
+      - name: Check if all jobs passed
+        run: |
+          echo "lint-format-typecheck: ${{ needs.lint-format-typecheck.result }}"
+          echo "test: ${{ needs.test.result }}"
+
+          if [[ "${{ needs.lint-format-typecheck.result }}" != "success" ]]; then
+            echo "❌ lint-format-typecheck failed"
+            exit 1
+          fi
+
+          if [[ "${{ needs.test.result }}" != "success" ]]; then
+            echo "❌ test failed"
+            exit 1
+          fi
+
+          echo "✅ All CI checks passed!"
