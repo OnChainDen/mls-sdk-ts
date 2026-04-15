@@ -1,0 +1,70 @@
+{
+  "name": "mls-sdk",
+  "version": "0.1.0",
+  "description": "SDK for Den's Multi-Layer Security Wallet",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "dev": "tsc -b -w",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write --log-level warn .",
+    "format:check": "prettier --check .",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "type-check": "tsc --noEmit",
+    "knip": "knip",
+    "clean": "rm -rf dist",
+    "prepare": "husky && tsc -b"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "mls",
+    "sdk",
+    "sync-server"
+  ],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "yarn@1.22.22",
+  "devDependencies": {
+    "@eslint/js": "9.39.2",
+    "@jest/globals": "29.7.0",
+    "@types/jest": "29.5.12",
+    "@types/node": "20.19.17",
+    "@typescript-eslint/eslint-plugin": "8.55.0",
+    "@typescript-eslint/parser": "8.55.0",
+    "dotenv": "17.3.1",
+    "eslint": "9.39.2",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.5",
+    "eslint-plugin-unused-imports": "4.2.0",
+    "globals": "15.15.0",
+    "husky": "9.1.7",
+    "jest": "29.7.0",
+    "knip": "5.64.1",
+    "lint-staged": "16.2.7",
+    "prettier": "3.8.1",
+    "ts-jest": "29.1.2",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
