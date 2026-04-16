@@ -15,4 +15,4 @@ For details on how MLS works and how to get started, check out our [documentatio
 
 ## Get Started
 
-Contact the Den team at [support@onchainden.com](mailto:sales@onchainden.com) to get API access, and follow our [quickstart guide](https://docs.mls.onchainden.com/api-reference/quickstart) to get started.
+Contact the Den team at [support@onchainden.com](mailto:support@onchainden.com) to get API access, and follow our [quickstart guide](https://docs.mls.onchainden.com/api-reference/quickstart) to get started.
