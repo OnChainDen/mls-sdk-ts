@@ -1,8 +1,7 @@
 {
-  "name": "mls-sdk",
-  "version": "0.1.0",
+  "name": "@onchainden/mls-sdk-ts",
+  "version": "0.1.1",
   "description": "SDK for Den's Multi-Layer Security Wallet",
-  "private": true,
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -15,7 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc -b",
+    "build": "yarn clean && tsc -b",
     "dev": "tsc -b -w",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -26,8 +25,9 @@
     "test:coverage": "jest --coverage",
     "type-check": "tsc --noEmit",
     "knip": "knip",
-    "clean": "rm -rf dist",
-    "prepare": "husky && tsc -b"
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "prepare": "husky",
+    "prepublishOnly": "yarn build"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -38,10 +38,26 @@
   "keywords": [
     "mls",
     "sdk",
-    "sync-server"
+    "wallet",
+    "web3",
+    "crypto",
+    "multisig",
+    "onchainden",
+    "waas"
   ],
-  "author": "",
+  "author": "Den",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnChainDen/mls-sdk-ts.git"
+  },
+  "homepage": "https://docs.mls.onchainden.com/",
+  "bugs": {
+    "email": "support@onchainden.com"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "packageManager": "yarn@1.22.22",
   "devDependencies": {
     "@eslint/js": "9.39.2",
