@@ -1,6 +1,6 @@
 {
   "name": "@onchainden/mls-sdk-ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "SDK for Den's Multi-Layer Security Wallet",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
