@@ -59,6 +59,12 @@
     "access": "public"
   },
   "packageManager": "yarn@1.22.22",
+  "resolutions": {
+    "@babel/core": "7.29.7",
+    "@eslint/eslintrc/js-yaml": "4.3.0",
+    "@istanbuljs/load-nyc-config/js-yaml": "3.15.0",
+    "knip/js-yaml": "4.3.0"
+  },
   "devDependencies": {
     "@eslint/js": "9.39.2",
     "@jest/globals": "29.7.0",
