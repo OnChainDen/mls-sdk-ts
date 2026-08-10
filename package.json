@@ -61,11 +61,10 @@
   "packageManager": "yarn@1.22.22",
   "resolutions": {
     "@babel/core": "7.29.7",
-    "@eslint/eslintrc/js-yaml": "4.3.0",
-    "@istanbuljs/load-nyc-config/js-yaml": "3.15.0",
+    "js-yaml": "4.3.1",
     "@typescript-eslint/typescript-estree/minimatch/brace-expansion": "5.0.9",
     "minimatch/brace-expansion": "1.1.18",
-    "knip/js-yaml": "4.3.0"
+    "knip/js-yaml": "4.3.1"
   },
   "devDependencies": {
     "@eslint/js": "9.39.2",
