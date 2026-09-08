@@ -1,6 +1,6 @@
 {
   "name": "@onchainden/mls-sdk-ts",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "SDK for Den's Multi-Layer Security Wallet",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -61,6 +61,8 @@
   "packageManager": "yarn@1.22.22",
   "resolutions": {
     "@babel/core": "7.29.7",
+    "@humanfs/node": "0.16.8",
+    "browserslist": "4.28.8",
     "js-yaml": "4.3.1",
     "@typescript-eslint/typescript-estree/minimatch/brace-expansion": "5.0.9",
     "minimatch/brace-expansion": "1.1.18",
