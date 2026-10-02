@@ -63,10 +63,11 @@
     "@babel/core": "7.29.7",
     "@humanfs/node": "0.16.8",
     "browserslist": "4.28.8",
-    "js-yaml": "4.3.1",
+    "js-yaml": "4.3.2",
     "@typescript-eslint/typescript-estree/minimatch/brace-expansion": "5.0.9",
     "minimatch/brace-expansion": "1.1.18",
-    "knip/js-yaml": "4.3.1"
+    "knip/js-yaml": "4.3.2",
+    "smol-toml": "1.7.1"
   },
   "devDependencies": {
     "@eslint/js": "9.39.2",
